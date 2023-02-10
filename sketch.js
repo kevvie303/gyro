@@ -49,8 +49,8 @@ function handleOrientation(event) {
   let tiltLR = event.gamma;
   let tiltFB = event.beta;
 
-  x += 0.2 * tiltLR;
-  y += 0.2 * tiltFB;
+  x += 0.1 * tiltLR;
+  y += 0.1 * tiltFB;
 
   x = constrain(x, diameter / 2, width - diameter / 2);
   y = constrain(y, diameter / 2, height - diameter / 2);
