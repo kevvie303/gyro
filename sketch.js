@@ -9,7 +9,6 @@ function setup() {
 function draw() {
   background(255);
   ellipse(x, y, 50, 50);
-  borders();
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
@@ -19,18 +18,7 @@ function handleOrientation(event) {
   let tiltFB = event.beta;
   x += 0.2 * tiltLR;
   y += 0.2 * tiltFB;
-}
-function borders() {
-  if (x >= window.innerWidth - 25) {
-    x = window.innerWidth - 25;
-  }
-  if (x <= 0) {
-    x = 0;
-  }
-  if (y <= 0) {
-    y = 0;
-  }
-  if (y >= window.innerHeight - 25) {
-    y = window.innerHeight - 25
-  }
+
+  x = constrain(x, 25, width - 25);
+  y = constrain(y, 25, height - 25);
 }
