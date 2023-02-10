@@ -21,16 +21,16 @@ function handleOrientation(event) {
   y += 0.2 * tiltFB;
 }
 function borders() {
-  if (x >= window.innerWidth - 50) {
-    x = window.innerWidth - 50;
+  if (x >= window.innerWidth - 25) {
+    x = window.innerWidth - 25;
   }
-  if (x <= 0 &! y >= window.innerHeight + 150 &! y <= window.innerHeight) {
+  if (x <= 0) {
     x = 0;
   }
   if (y <= 0) {
     y = 0;
   }
-  if (y >= window.innerHeight + 50) {
-    y = window.innerHeight + 50
+  if (y >= window.innerHeight - 25) {
+    y = window.innerHeight - 25
   }
 }
