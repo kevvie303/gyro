@@ -1,13 +1,16 @@
 let x = window.innerWidth / 2;
 let y = window.innerHeight / 2;
-
+let mazeImg;
+function preload() {
+  mazeImg = loadImage("images/maze.png")
+}
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
   fill(255, 0, 0);
 }
 
 function draw() {
-  background(255);
+  background(mazeImg);
   ellipse(x, y, 50, 50);
 }
 
