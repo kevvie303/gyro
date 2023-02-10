@@ -23,16 +23,23 @@ function draw() {
   pop();
 
   // Check for collision with the walls of the maze
+  let collision = false;
+
   if (collideRectCircle(100, 100, 300, 300, x, y, diameter)) {
-    x -= 5;
+    collision = true;
   }
 
   if (collideRectCircle(200, 400, 100, 100, x, y, diameter)) {
-    x += 5;
+    collision = true;
   }
 
   if (collideLineCircle(400, 100, 400, 400, x, y, diameter)) {
-    y -= 5;
+    collision = true;
+  }
+
+  if (collision) {
+    x -= tiltLR;
+    y -= tiltFB;
   }
 }
 
@@ -45,6 +52,6 @@ function handleOrientation(event) {
   x += 0.2 * tiltLR;
   y += 0.2 * tiltFB;
 
-  x = constrain(x, 25, width - 25);
-  y = constrain(y, 25, height - 25);
+  x = constrain(x, diameter / 2, width - diameter / 2);
+  y = constrain(y, diameter / 2, height - diameter / 2);
 }
