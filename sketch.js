@@ -12,9 +12,6 @@ function draw() {
   // Draw the walls of the maze
   stroke(0);
   strokeWeight(5);
-  rect(100, 100, 300, 300);
-  rect(200, 400, 100, 100);
-  line(600, 100, 400, 400);
 
   // Draw the circle
   push();
@@ -22,25 +19,7 @@ function draw() {
   ellipse(x, y, diameter, diameter);
   pop();
 
-  // Check for collision with the walls of the maze
-  let collision = false;
 
-  if (collideRectCircle(100, 100, 300, 300, x, y, diameter)) {
-    collision = true;
-  }
-
-  if (collideRectCircle(200, 400, 100, 100, x, y, diameter)) {
-    collision = true;
-  }
-
-  if (collideLineCircle(400, 100, 400, 400, x, y, diameter)) {
-    collision = true;
-  }
-
-  if (collision) {
-    x -= tiltLR;
-    y -= tiltFB;
-  }
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
